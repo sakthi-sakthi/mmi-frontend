@@ -1,0 +1,36 @@
+{
+  "short_name": "Missionaries of Mary Immaculate",
+  "name": "Missionaries of Mary Immaculate",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "maskable.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo384.jpg",
+      "type": "image/png",
+      "sizes": "384x384"
+    },
+    {
+      "src": "logo256.jpg",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "logo512.jpg",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
