@@ -22,7 +22,7 @@ function About() {
                   <p className="quote">“Loving God in Serving the Poor To be Fully Human and Fully Alive.”</p>
                 </div>
                 <center>
-                  <Link to="/history">
+                  <Link to="/about-mmi">
                     <button className="brown-button btn-sm">Know More</button>
                   </Link>
                 </center>
