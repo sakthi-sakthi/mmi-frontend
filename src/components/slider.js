@@ -1,56 +1,36 @@
-import React, { useEffect, useRef } from "react";
-import Swiper from "swiper";
+import React from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-function Slider({ sliderdata, sliderId }) {
-  const slideshowRef = useRef(null);
-  const swiperRef = useRef(null);
+const Slider = React.memo(({ sliderdata }) => {
 
-  useEffect(() => {
-    if (sliderdata && slideshowRef.current) {
-      const swiper = new Swiper(slideshowRef.current, {
-        loop: true,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        slidesPerView: 1,
-        spaceBetween: 20,
-        on: {
-          slideChange: () => {},
-        },
-      });
-
-      swiperRef.current = swiper;
-
-      const interval = setInterval(() => {
-        swiperRef.current.slideNext();
-      }, 5000);
-
-      return () => {
-        clearInterval(interval);
-        swiperRef.current.destroy();
-      };
-    }
-  }, [sliderdata, sliderId]);
-
-  return (
-    <div
-      id={sliderId}
-      className="swiper-container hero-slider"
-      ref={slideshowRef}
-    >
-      <div className="swiper-wrapper">
-        {sliderdata?.map((data) => (
-          <div className="swiper-slide hero-content-wrap" key={data.id}>
-            <img src={data.image} alt={data.title} id="newslidebanner" />
-            <div className="hero-content-overlay position-absolute w-100 h-100">
-              <div className="container h-100"></div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+    return (
+        <>
+            <section className="hero-one slidesect">
+                <Carousel
+                    autoPlay
+                    infiniteLoop
+                    showArrows
+                    showStatus
+                    showThumbs={false}
+                    stopOnHover={true}
+                    interval={5000}
+                    transitionTime={500}
+                >
+                    {sliderdata?.map((item, index) => (
+                        <div key={index}>
+                            <img src={item?.image} alt="hero-one-slider" />
+                            <div className="hero-data text-center">
+                                <h1 className='text-white'>
+                                    {item?.title}
+                                </h1>
+                            </div>
+                        </div>
+                    ))}
+                </Carousel>
+            </section>
+        </>
+    );
+});
 
 export default Slider;

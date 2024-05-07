@@ -70,7 +70,7 @@ function Header({ menudata }) {
                 <div className="social-icons">
                   <div className="social-icon">
                     <a
-                      href="https://www.facebook.com/sharer.php?u=https://stcharleschennai.com/index.php/events-and-celebrations"
+                      href="/"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -79,7 +79,7 @@ function Header({ menudata }) {
                   </div>
                   <div className="social-icon">
                     <a
-                      href="https://youtu.be/JgRNH5FqY-0"
+                      href="/"
                       target="_blank"
                       rel="noreferrer"
                     >

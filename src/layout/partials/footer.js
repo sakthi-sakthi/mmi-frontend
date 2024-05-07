@@ -113,7 +113,7 @@ function Footer() {
                           </p>
                           <li>
                             <a
-                              href="https://twitter.com/share?url=https://stcharleschennai.com/index.php/events-and-celebrations&text=Events%20and%20Celebrations"
+                              href="/"
                               target="_blank"
                               rel="noreferrer"
                             >
@@ -121,7 +121,7 @@ function Footer() {
                             </a>
                             &nbsp;
                             <a
-                              href="https://plus.google.com/share?url=https://stcharleschennai.com/index.php/events-and-celebrations"
+                              href="/"
                               target="_blank"
                               rel="noreferrer"
                             >
@@ -129,7 +129,7 @@ function Footer() {
                             </a>
                             &nbsp;
                             <a
-                              href="https://www.facebook.com/sharer.php?u=https://stcharleschennai.com/index.php/events-and-celebrations"
+                              href="/"
                               target="_blank"
                               rel="noreferrer"
                             >
@@ -137,7 +137,7 @@ function Footer() {
                             </a>
                             &nbsp;
                             <a
-                              href="http://www.linkedin.com/shareArticle?mini=true&url=https://stcharleschennai.com/index.php/events-and-celebrations"
+                              href="/"
                               target="_blank"
                               rel="noreferrer"
                             >

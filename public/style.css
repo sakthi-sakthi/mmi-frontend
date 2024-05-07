@@ -21,6 +21,9 @@ img {
   width: 232px;
 }
 
+h3 {
+  font-size: 23px !important;
+}
 /*--------------------------------------------------------------
 # Links
 --------------------------------------------------------------*/
@@ -60,6 +63,10 @@ a:active {
   font-family: unset;
 }
 
+.carousel-slider{
+  height: 670px !important;
+}
+
 /*
 # Header Bar Email
 --------------------------------*/
@@ -69,7 +76,8 @@ a:active {
   font-size: 14px;
   line-height: 1;
   text-transform: uppercase;
-  font-weight: bold;
+  text-decoration: none !important;
+  /* font-weight: bold; */
 }
 
 .header-bar-email a,
@@ -88,7 +96,8 @@ a:active {
   font-size: 12px;
   line-height: 1;
   text-transform: uppercase;
-  font-weight: bold;
+  text-decoration: none !important;
+  /* font-weight: bold; */
 }
 
 .header-bar-text p {
@@ -2516,7 +2525,7 @@ div.main-tile-text h2 {
   font-family: "Poppins", Sans-serif !important;
   color: white !important;
   letter-spacing: 1px;
-  font-weight: 500;
+  /* font-weight: 500; */
   font-size: 14px;
 }
 .navbar-nav .nav-item.active .nav-link {
@@ -2846,14 +2855,14 @@ div.main-tile-text h2 {
   text-decoration: none !important;
 }
 .brudcrums {
-  font-size: 28px;
+  font-size: 23px;
   color: #f2e7c8;
 }
 .brudcrums a {
-  font-size: 18px;
+  font-size: 17px;
 }
 .brudcrums span {
-  font-size: 18px;
+  font-size: 17px;
 }
 .justify {
   text-align: justify;
