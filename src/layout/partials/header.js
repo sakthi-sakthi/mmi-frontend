@@ -105,9 +105,9 @@ function Header({ menudata }) {
             />
           </Link>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-light custom-menu">
+        <nav className="navbar navbar-expand-lg navbar-light custom-menu">
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-toggle="collapse"
             data-target="#navbarNav"
@@ -115,10 +115,10 @@ function Header({ menudata }) {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            class="collapse navbar-collapse header-align-center"
+            className="collapse navbar-collapse header-align-center"
             id="navbarNav"
           >
             <ul className="navbar-nav">
@@ -151,7 +151,7 @@ function Header({ menudata }) {
                           key={subIndex}
                           to={subItem.url}
                           className="dropdown-item"
-                          activeClassName="active"
+                          activeclassname="active"
                         >
                           {subItem.label}
                         </NavLink>
