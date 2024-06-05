@@ -5,7 +5,7 @@ import { ReligioUrl } from "./API/Api";
 function Scrollbar() {
   const [isScrollingAllowed, setIsScrollingAllowed] = useState(true);
   const [newsData, setNewsData] = useState([]);
-  const [hasUpcomingEvents, setHasUpcomingEvents] = useState(true); // New state
+  const [hasUpcomingEvents, setHasUpcomingEvents] = useState(true);
 
   const stopScroll = () => {
     setIsScrollingAllowed(false);
@@ -21,7 +21,6 @@ function Scrollbar() {
         const response = await axios.get(`${ReligioUrl}/news/congregation/2`);
         const allNewsData = response?.data?.data;
         setNewsData(allNewsData);
-        // Check if there are any upcoming events
         if (allNewsData?.some((newsItem) => isFutureEvent(newsItem.date))) {
           setHasUpcomingEvents(true);
         } else {

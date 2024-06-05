@@ -9,14 +9,8 @@ function Footer() {
 
     const fetchData = async () => {
       try {
-        const cachedData = localStorage.getItem('addressData');
-        if (cachedData) {
-          setAddress(JSON.parse(cachedData));
-        } else {
-          const response = await axios.get(`${ApiUrl}/get/contactDetails`);
-          setAddress(response?.data?.data);
-          localStorage.setItem('HomeaddressData', JSON.stringify(response?.data?.data));
-        }
+        const response = await axios.get(`${ApiUrl}/get/contactDetails`);
+        setAddress(response?.data?.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }

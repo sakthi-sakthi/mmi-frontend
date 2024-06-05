@@ -30,15 +30,13 @@ function Home() {
     };
     const fetchpageData = async () => {
       try {
-        const response = await axios.get(`${ApiUrl}/get/Pages/{id}`);
-        const newData = response?.data?.pages;
-        localStorage.removeItem("Pages");
-        localStorage.setItem("Pages", JSON.stringify(newData));
+        const response = await axios.get(`${ApiUrl}/get/Pages`);
+        setHomedata(response?.data?.pages);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-
+    
     fetchpageData();
     fetchData();
   }, []);
