@@ -1,9 +1,8 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import ReCAPTCHA from "react-google-recaptcha";
 import { ApiUrl } from "../../components/API/Api";
 
 
@@ -11,27 +10,15 @@ function Contact() {
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
   const [loaderVisible, setLoaderVisible] = useState(false);
 
-  const recaptchaRef = useRef();
-
   const navigate = useNavigate();
 
   const onSubmitContactForm = (data, e) => {
-    const recaptchaValue = recaptchaRef.current.getValue();
-    if (!recaptchaValue) {
-      setValue("recaptcha", "", { shouldValidate: true });
-      setLoaderVisible(false);
-      return;
-    }
-
     setLoaderVisible(true);
-
-    data.recaptchaValue = recaptchaValue;
 
     axios
       .post(`${ApiUrl}/store/contact`, data)
@@ -56,7 +43,6 @@ function Contact() {
         });
       });
   };
-
   return (
     <>
       <div className="container subpage mt-3">
@@ -168,18 +154,6 @@ function Contact() {
                   </div>
                 )}
               </div>
-              <div className="form-group">
-                <ReCAPTCHA
-                  ref={recaptchaRef}
-                  sitekey="6LfiZxIpAAAAACmjf6CKmU16rxT9lqshGQw6hE7y"
-                  onChange={(value) => {
-                    setValue("recaptcha", value, { shouldValidate: true });
-                  }}
-                />
-                {errors.recaptcha && (
-                  <span className="text-danger">Please complete the reCAPTCHA verification.</span>
-                )}
-              </div>
               <div className="text-center">
                 <button type="submit" className="buttonjs">
                   Send Message
@@ -190,9 +164,9 @@ function Contact() {
                   style={{ display: loaderVisible ? "inline-block" : "none" }}
                 >
                   <img
-                    src="images/subpage/gif/ajaxload.gif"
-                    width="32px"
-                    height="32px"
+                    src="images/all-img/loader.gif"
+                    width="50px"
+                    height="50px"
                     alt="Loader"
                   />
                 </span>
