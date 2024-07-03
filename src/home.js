@@ -8,7 +8,7 @@ import Scrollbar from "./components/scrollbar";
 import Slider from "./components/slider";
 import Upcoming from "./components/upcoming";
 import axios from "axios";
-import {ThreeDots} from "react-loader-spinner";
+import { ThreeDots } from "react-loader-spinner";
 import OurStatic from "./components/ourstatic";
 
 function Home() {
@@ -16,29 +16,40 @@ function Home() {
   const [homedata, setHomedata] = useState(null);
 
   useEffect(() => {
-
     const fetchData = async () => {
       try {
         const response = await axios.get(`${ApiUrl}/get/homepagee/sections`);
-        localStorage.setItem("HomeData", JSON.stringify(response?.data?.data));
-        setHomedata(response?.data?.data);
+        const data = response?.data?.data;
+        setHomedata(data);
+        sessionStorage.setItem('homedata', JSON.stringify(data));
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
         setLoading(false);
       }
     };
+
     const fetchpageData = async () => {
       try {
         const response = await axios.get(`${ApiUrl}/get/Pages`);
-        setHomedata(response?.data?.pages);
+        const data = response?.data?.pages;
+        setHomedata(data);
+        sessionStorage.setItem('pagedata', JSON.stringify(data));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-    
-    fetchpageData();
-    fetchData();
+
+    const storedHomedata = sessionStorage.getItem('homedata');
+    const storedPagedata = sessionStorage.getItem('pagedata');
+
+    if (storedHomedata && storedPagedata) {
+      setHomedata(JSON.parse(storedHomedata));
+      setLoading(false);
+    } else {
+      fetchpageData();
+      fetchData();
+    }
   }, []);
 
   if (loading) {

@@ -1,22 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import ApiUrl from "../../Api/Api";
-import axios from "axios";
 
-function Footer() {
-  const [address, setAddress] = useState(null);
-  useEffect(() => {
-
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`${ApiUrl}/get/contactDetails`);
-        setAddress(response?.data?.data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    fetchData();
-  }, []);
+function Footer({footerdata}) {
   return (
     <>
       <footer className="site-footer">
@@ -81,16 +66,15 @@ function Footer() {
                   <div className="section-heading">
                     <h2 className="entry-title mb-4">Contact Us</h2>
                   </div>
-                  {address ? (
                     <ul>
                       <li>
                         <i className="fa fa-phone mr-2" />
-                        <Link to={`tel:${address.mobile}`}>{address.mobile}</Link>
+                        <Link to={`tel:${footerdata?.mobile}`}>{footerdata?.mobile}</Link>
                       </li>
                       <li>
                         <i className="fa fa-envelope mr-2" />
-                        <Link to={`mailto:${address.email}`}>
-                          {address.email}
+                        <Link to={`mailto:${footerdata?.email}`}>
+                          {footerdata?.email}
                         </Link>
                       </li>
                       <li>
@@ -141,9 +125,6 @@ function Footer() {
                         </span>
                       </li>
                     </ul>
-                  ) : (
-                    <p>Loading...</p>
-                  )}
                 </div>
               </div>
 
@@ -153,7 +134,7 @@ function Footer() {
                     <h2 className="entry-title mb-4">Location</h2>
                   </div>
                   <iframe
-                    src={address?.googleMapsUrl}
+                    src={footerdata?.googleMapsUrl}
                     width={300}
                     height={200}
                     title="MMI"

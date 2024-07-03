@@ -1,22 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import ApiUrl from "../../Api/Api";
-import axios from "axios";
+
 function Header({ menudata }) {
   const location = useLocation();
-  const [address, setAddress] = useState(null);
-  useEffect(() => {
-
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`${ApiUrl}/get/contactDetails`);
-        setAddress(response?.data?.data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    fetchData();
-  }, []);
   return (
     <>
       <header className="site-header">
@@ -25,39 +11,31 @@ function Header({ menudata }) {
             <div className="row flex-wrap justify-content-center justify-content-lg-between align-items-lg-center">
               <div className="col-12 col-lg-8 d-none d-md-flex flex-wrap justify-content-center justify-content-lg-start mb-3 mb-lg-0">
                 <div className="header-bar-email" style={{ fontSize: "13px" }}>
-                  {address ? (
-                    <>
-                      <i
-                        className="fa fa-envelope"
-                        style={{ color: "#f6c93f" }}
-                      ></i>
-                      <a href={`mailto:${address?.email}`}>
-                        <span
-                          className="__cf_email__"
-                          style={{ marginLeft: "0.5rem" }}
-                        >
-                          {address?.email}
-                        </span>
-                      </a>
-                    </>
-                  ) : (
-                    <p>Loading...</p>
-                  )}
+                  <>
+                    <i
+                      className="fa fa-envelope"
+                      style={{ color: "#f6c93f" }}
+                    ></i>
+                    <a href={`mailto:mmisecgen@gmail.com`}>
+                      <span
+                        className="__cf_email__"
+                        style={{ marginLeft: "0.5rem" }}
+                      >
+                        mmisecgen@gmail.com
+                      </span>
+                    </a>
+                  </>
                 </div>
                 <div
                   className="header-bar-text align-items-center justify-content-center"
                   style={{ fontSize: "13px" }}
                 >
-                  {address ? (
-                    <>
-                      <i className="fa fa-phone" style={{ color: "#f6c93f" }}></i>
-                      <a href={`tel:${address?.mobile}`} style={{ marginLeft: "0.3rem" }}>
-                        {address?.mobile}
-                      </a>
-                    </>
-                  ) : (
-                    <p>Loading...</p>
-                  )}
+                  <>
+                    <i className="fa fa-phone" style={{ color: "#f6c93f" }}></i>
+                    <a href={`tel:+91-9876543210`} style={{ marginLeft: "0.3rem" }}>
+                      +91-9876543210
+                    </a>
+                  </>
                 </div>
               </div>
               <div className="col-12 col-lg-4 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">

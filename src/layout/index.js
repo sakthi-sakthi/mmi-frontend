@@ -50,7 +50,7 @@ const MainLayout = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${ApiUrl}/get/homepagee/sections`);
-        localStorage.setItem("HomeData", JSON.stringify(response?.data?.data));
+        sessionStorage.setItem("HomeData", JSON.stringify(response?.data?.data));
         setHomedata(response?.data?.data);
       } catch (error) {
         console.error("Error fetching data:", error);
