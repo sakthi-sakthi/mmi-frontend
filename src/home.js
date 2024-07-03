@@ -53,8 +53,8 @@ function Home() {
       >
         <ThreeDots
           visible={true}
-          height="80"
-          width="80"
+          height="60"
+          width="60"
           color="#172440"
           radius="9"
           ariaLabel="three-dots-loading"
